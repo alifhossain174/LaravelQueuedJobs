@@ -13,17 +13,17 @@ Follow our TaskNotification class inside job
 TaskNotification::dispatch($data)
 
 ## 5. in queue.php set database to mysql
-'failed' => [
-    'driver' => env('QUEUE_FAILED_DRIVER', 'database-uuids'),
-    'database' => env('DB_CONNECTION', 'mysql'),
-    'table' => 'failed_jobs',
+'failed' => [<br>
+    'driver' => env('QUEUE_FAILED_DRIVER', 'database-uuids'),<br>
+    'database' => env('DB_CONNECTION', 'mysql'),<br>
+    'table' => 'failed_jobs',<br>
 ],
 
 ## 6. Run this command to active the worker to server your Job
 php artisan queue:work (set it in cron in hosting)
 
 ## 7. In terms of a failed Jobs
-Again the restart the worker
-php artisan queue:work (auto by cron)
-And send the failed queue to job table
+Again the restart the worker<br>
+php artisan queue:work (auto by cron)<br>
+And send the failed queue to job table<br>
 php artisan queue:retry all
