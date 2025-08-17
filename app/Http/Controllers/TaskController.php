@@ -14,24 +14,23 @@ class TaskController extends Controller
 
         foreach($request->assigned_users as $assignedEmail){
 
-            for($i=1; $i<=5; $i++){
+            Task::insert([
+                'name' => $request->name,
+                'description' => $request->description,
+                'assigned_user' => $assignedEmail,
+                'created_at' => Carbon::now()
+            ]);
 
-                Task::insert([
-                    'name' => $request->name,
-                    'description' => $request->description,
-                    'assigned_user' => $assignedEmail,
-                    'created_at' => Carbon::now()
-                ]);
-
-                // $taskName = $request->name;
-                // $taskDescription = $request->description;
-                // Mail::raw("Task: {$taskName}\n\n{$taskDescription}", function ($m) use ($assignedEmail, $taskName) {
-                //     $m->to($assignedEmail)->subject("New Task: {$taskName}");
-                // });
-            }
+            // Uncomment the following lines if you want to send an email immediately
+            // $taskName = $request->name;
+            // $taskDescription = $request->description;
+            // Mail::raw("Task: {$taskName}\n\n{$taskDescription}", function ($m) use ($assignedEmail, $taskName) {
+            //     $m->to($assignedEmail)->subject("New Task: {$taskName}");
+            // });
 
         }
 
+        // Dispatch the job to send notificationss
         $data = array();
         $data['name'] = $request->name;
         $data['description'] = $request->description;
