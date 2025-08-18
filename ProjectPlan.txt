@@ -1,0 +1,27 @@
+For Queue
+=========
+
+Frontend
+checkout sms and email
+customer order cancel sms
+LazyLoader in image
+
+
+Backend
+POS Order er email and sms
+Order Status change notification
+Qurier Assign notification
+Qurier Status Update/Bulk Upload
+ERP API Use
+
+
+Config
+Use Queue or not
+Responsible Person Email
+Send Failed Jobs to Main Jobs
+Show Jobs and Failed Jobs in Admin
+
+
+getupdemo_laravel_queue
+getupdemo_laravel_queue_user
+0pV6e!2%iE

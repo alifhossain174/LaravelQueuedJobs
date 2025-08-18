@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Create New Task</title>
+    <link rel="stylesheet" href="{{url('/')}}/css/toastr.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -181,6 +182,8 @@
 
                 <button type="submit" class="create-button">Create Task</button>
             </form>
+
+            <a href="{{url('exports/tasks/queue')}}" style="display: inline-block; margin-top: 50px;">Export Task Data</a>
         </div>
     </div>
 
@@ -228,14 +231,16 @@
                 return response.json();
             })
             .then(data => {
-                alert('Task created successfully!');
-                console.log('Success:', data);
+                //alert('Task created successfully!');
+                //console.log('Success:', data);
+                toastr.success('Task Assigned successfully!');
                 // Reset form on success
                 this.reset();
             })
             .catch(error => {
-                console.error('Error:', error);
-                alert('Error creating task. Please try again.');
+                // console.error('Error:', error);
+                // alert('Error creating task. Please try again.');
+                toastr.error('Error creating task. Please try again.');
             })
             .finally(() => {
                 // Re-enable the submit button
@@ -244,5 +249,10 @@
             });
         });
     </script>
+
+    <script src="{{url('/')}}/js/jquery.min.js"></script>
+    <script src="{{url('/')}}/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
+
 </body>
 </html>

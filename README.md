@@ -20,10 +20,10 @@ TaskNotification::dispatch($data)
 ],
 
 ## 6. Run this command to active the worker to server your Job
-php artisan queue:work (set it in cron in hosting)
+php artisan queue:work --memory=8000 (set it in cron in hosting)
 
 ## 7. In terms of a failed Jobs
 Again the restart the worker<br>
-php artisan queue:work (auto by cron)<br>
+php artisan queue:work --memory=8000 (auto by cron)<br>
 And send the failed queue to job table<br>
 php artisan queue:retry all
