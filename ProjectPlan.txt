@@ -20,8 +20,3 @@ Use Queue or not
 Responsible Person Email
 Send Failed Jobs to Main Jobs
 Show Jobs and Failed Jobs in Admin
-
-
-getupdemo_laravel_queue
-getupdemo_laravel_queue_user
-0pV6e!2%iE
